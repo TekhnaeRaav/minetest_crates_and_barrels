@@ -1,3 +1,13 @@
+--Crate
+
+minetest.register_craft({
+	output = 'crates_and_barrels:crate',
+	recipe = {
+		{'','group:wood','group:wood'},
+		{'','group:wood','group:wood'},
+	}
+})
+
 minetest.register_node("crates_and_barrels:crate", {
 	description = "Wood Crate",
 	paramtype2 = "facedir",
@@ -29,6 +39,15 @@ minetest.register_node("crates_and_barrels:crate", {
 	end,
 })
 
+--Barrel
+
+minetest.register_craft({
+	output = 'crates_and_barrels:barrel',
+	recipe = {
+		{'','group:wood',''},
+		{'','group:wood',''},
+	}
+})
 
 minetest.register_node("crates_and_barrels:barrel", {
 	description = "Barrel",
@@ -57,11 +76,11 @@ minetest.register_node("crates_and_barrels:barrel", {
 			default.gui_bg..
 			default.gui_bg_img..
 			default.gui_slots..
-			"list[context;contents;2,0.5;4,4;]" ..
+			"list[context;contents;2.5,0.8;3,3;]" ..
 			"list[current_player;main;0,5;8,4;]")
 
 		local inv = meta:get_inventory()
-		inv:set_size('contents', 16)
+		inv:set_size('contents', 9)
 	end,
 
 	on_blast = function(pos)
